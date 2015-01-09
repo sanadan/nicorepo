@@ -4,49 +4,67 @@ require 'bundler/setup'
 Bundler.require
 require 'rss'
 
+NICO_PIT = 'www.nicovideo.jp'
 NICOREPO_URI = 'http://www.nicovideo.jp/my/top'
 
-config = Pitcgi.get( 'www.nicovideo.jp', :require => {
-  'mail' => 'mail address or phone number',
-  'password' => 'password',
-  'token' => 'auto' } )
-nico = Niconico.new( :mail => config[ 'mail' ], :password => config[ 'password' ], :token => config[ 'token' ] )
-nico.login
-config[ 'token' ] = nico.token
-Pitcgi.set( 'www.nicovideo.jp', :data => config )
+def main
+  config = Pitcgi.get( NICO_PIT, :require => {
+    'mail' => 'mail address or phone number',
+    'password' => 'password',
+    'token' => 'auto' } )
+  nico = Niconico.new( :mail => config[ 'mail' ], :password => config[ 'password' ], :token => config[ 'token' ] )
+  nico.login
+  config[ 'token' ] = nico.token
+  Pitcgi.set( NICO_PIT, :data => config )
 
-feed_items = []
-page = nico.agent.get( NICOREPO_URI )
-page.search( '.log-content' ).each do |data|
-  item = {}
-  item[ :title ] = data.at( '.log-body' ).text.gsub( /[\t\r\n]/, '' )
-  item[ :link ] = data.at( '.log-target a' ).attribute( 'href' )
-  body = data.dup
-  body.at( '.nicoru-positioned' ).remove
-  body.at( '.log-reslist' ).remove
-  body.at( '.log-footer' ).remove
-  body.children.each do |child|
-    child.remove if child.comment?
-  end
-  body.at( '.log-details' ).children.each do |child|
-    child.remove if child.comment?
-  end
-  img = body.at( '.log-details img' )
-  img[ 'src' ] = img[ 'data-src' ]
-  img.delete( 'data-src' )
-  img[ 'align' ] = 'left'
+  page = nico.agent.get( NICOREPO_URI )
+  page.search( '.log-content' ).each do |data|
+    item = {}
+    item[ :title ] = data.at( '.log-body' ).text.gsub( /[\t\r\n]/, '' )
+    item[ :link ] = data.at( '.log-target a' ).attribute( 'href' )
+    body = data.dup
+    body.at( '.nicoru-positioned' ).remove
+    body.at( '.log-reslist' ).remove
+    body.at( '.log-footer' ).remove
+    body.children.each do |child|
+      child.remove if child.comment?
+    end
+    body.at( '.log-details' ).children.each do |child|
+      child.remove if child.comment?
+    end
+    img = body.at( '.log-details img' )
+    img[ 'src' ] = img[ 'data-src' ]
+    img.delete( 'data-src' )
+    img[ 'align' ] = 'left'
 #  item[ :body ] = body.inner_html.gsub( /\t/, '' ).gsub( /^[ \t]*[\r\n]+/, '' )
-  item[ :body ] = body.inner_html.gsub( /[\t\r\n]/, '' )
-  item[ :time ] = data.search( '.relative' ).attribute( 'datetime' )
+    item[ :body ] = body.inner_html.gsub( /[\t\r\n]/, '' )
+    item[ :time ] = data.search( '.relative' ).attribute( 'datetime' )
 
-  feed_items << item
+    @feed_items << item
 
 =begin
-  print "title: " + item[ :title ] + "\n"
-  print "link: " + item[ :link ] + "\n"
-  print "body: " + item[ :body ] + "\n"
+    print "title: " + item[ :title ] + "\n"
+    print "link: " + item[ :link ] + "\n"
+    print "body: " + item[ :body ] + "\n"
   print "time: " + item[ :time ] + "\n"
 =end
+  end
+end
+
+@feed_items = []
+begin
+  main
+rescue
+  data = {}
+  data[ :id ] = Time.now.strftime( '%Y%m%d%H%M%S' )
+  data[ :title ] = $!.to_s
+  data[ :time ] = Time.now
+  data[ :body ] = $!.to_s
+  $!.backtrace.each do |trace|
+    data[ :body ] += '<br>'
+    data[ :body ] += trace
+  end
+  @feed_items << data
 end
 
 feed = RSS::Maker.make( 'atom' ) do |maker|
@@ -56,9 +74,10 @@ feed = RSS::Maker.make( 'atom' ) do |maker|
   maker.channel.link = 'http://www.nicovideo.jp'
   maker.channel.updated = Time.now
   maker.channel.author = 'sanadan'
-  feed_items.each do |data|
+  @feed_items.each do |data|
     item = maker.items.new_item
-    item.link = data[ :link ]
+    item.id = data[ :id ] if data[ :id ]
+    item.link = data[ :link ] if data[ :link ]
     item.title = data[ :title ]
     item.date = data[ :time ]
     item.content.content = data[ :body ]
@@ -66,9 +85,7 @@ feed = RSS::Maker.make( 'atom' ) do |maker|
   end
 end
 
-begin
 print "Content-Type: application/atom+xml; charset=UTF-8\n"
 print "\n"
 print feed
-end
 

@@ -1,5 +1,5 @@
 # nicorepo_feed
-Generate atom feed from nicorepo
+Generate atom feed from nicorepo.
 
 ## install
 For Ubuntu 14.04
