@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
-require 'bundler/setup'
-Bundler.require
-require 'rss'
-
 NICO_PIT = 'www.nicovideo.jp'
 NICOREPO_URI = 'http://www.nicovideo.jp/my/top'
+
+require 'bundler/setup'
+Bundler.require
+require 'rss/maker'
 
 def main
   config = Pitcgi.get( NICO_PIT, :require => {
