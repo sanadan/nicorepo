@@ -21,7 +21,12 @@ def main
   page.search( '.log-content' ).each do |data|
     item = {}
     item[ :title ] = data.at( '.log-body' ).text.gsub( /[\t\r\n]/, '' )
-    item[ :link ] = data.at( '.log-target a' ).attribute( 'href' )
+#    item[ :link ] = data.at( '.log-target a' ).attribute( 'href' )
+    link = data.at( '.log-target a' )
+    if ( link == nil ) then
+      link = data.at( '.log-body a' )
+    end
+    item[ :link ] = link.attribute( 'href' )
     body = data.dup
     body.at( '.nicoru-positioned' ).remove
     body.at( '.log-reslist' ).remove
@@ -33,9 +38,11 @@ def main
       child.remove if child.comment?
     end
     img = body.at( '.log-details img' )
-    img[ 'src' ] = img[ 'data-src' ]
-    img.delete( 'data-src' )
-    img[ 'align' ] = 'left'
+    if ( img != nil ) then
+      img[ 'src' ] = img[ 'data-src' ]
+      img.delete( 'data-src' )
+      img[ 'align' ] = 'left'
+    end
 #  item[ :body ] = body.inner_html.gsub( /\t/, '' ).gsub( /^[ \t]*[\r\n]+/, '' )
     item[ :body ] = body.inner_html.gsub( /[\t\r\n]/, '' )
     item[ :time ] = data.search( '.relative' ).attribute( 'datetime' )
@@ -68,10 +75,10 @@ rescue
 end
 
 feed = RSS::Maker.make( 'atom' ) do |maker|
-  maker.channel.about = 'http://www.nicovideo.jp/my/top'
+  maker.channel.about = 'nicorepo_feed'
   maker.channel.title = 'ニコレポ'
   maker.channel.description = 'ニコレポのフィードです'
-  maker.channel.link = 'http://www.nicovideo.jp'
+  maker.channel.link = 'http://www.nicovideo.jp/my/top'
   maker.channel.updated = Time.now
   maker.channel.author = 'sanadan'
   @feed_items.each do |data|
