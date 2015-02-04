@@ -2,6 +2,7 @@
 
 NICO_PIT = 'www.nicovideo.jp'
 NICOREPO_URI = 'http://www.nicovideo.jp/my/top'
+THUMBNAIL_TAG = 'data-original'
 
 require 'bundler/setup'
 Bundler.require
@@ -39,8 +40,8 @@ def main
     end
     img = body.at( '.log-details img' )
     if ( img != nil ) then
-      img[ 'src' ] = img[ 'data-src' ]
-      img.delete( 'data-src' )
+      img[ 'src' ] = img[ THUMBNAIL_TAG ]
+      img.delete( THUMBNAIL_TAG )
       img[ 'align' ] = 'left'
     end
 #  item[ :body ] = body.inner_html.gsub( /\t/, '' ).gsub( /^[ \t]*[\r\n]+/, '' )
