@@ -29,7 +29,8 @@ def main
     end
     item[ :link ] = link.attribute( 'href' )
     body = data.dup
-    body.at( '.nicoru-positioned' ).remove
+    nicoru = body.at( '.nicoru-positioned' )
+    nicoru.remove if nicoru
     body.at( '.log-reslist' ).remove
     body.at( '.log-footer' ).remove
     body.children.each do |child|
