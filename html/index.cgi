@@ -22,7 +22,6 @@ def main
   page.search( '.log-content' ).each do |data|
     item = {}
     item[ :title ] = data.at( '.log-body' ).text.gsub( /[\t\r\n]/, '' )
-#    item[ :link ] = data.at( '.log-target a' ).attribute( 'href' )
     link = data.at( '.log-target a' )
     if ( link == nil ) then
       link = data.at( '.log-body a' )
@@ -45,18 +44,10 @@ def main
       img.delete( THUMBNAIL_TAG )
       img[ 'align' ] = 'left'
     end
-#  item[ :body ] = body.inner_html.gsub( /\t/, '' ).gsub( /^[ \t]*[\r\n]+/, '' )
-    item[ :body ] = body.inner_html.gsub( /[\t\r\n]/, '' )
+    item[ :body ] = body.inner_html.gsub( /[\t\r\n]/, ' ' )
     item[ :time ] = data.search( '.relative' ).attribute( 'datetime' )
 
     @feed_items << item
-
-=begin
-    print "title: " + item[ :title ] + "\n"
-    print "link: " + item[ :link ] + "\n"
-    print "body: " + item[ :body ] + "\n"
-  print "time: " + item[ :time ] + "\n"
-=end
   end
 end
 
