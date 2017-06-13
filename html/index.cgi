@@ -20,7 +20,7 @@ def main
   Pitcgi.set( NICO_PIT, :data => config )
 
   json = nico.agent.get( NICOREPO_API ).body
-File.write( 'o.json', json )
+#File.write( 'o.json', json )
   nicorepo = JSON.parse( json )
   nicorepo[ 'data' ].each do |data|
     item = {}
