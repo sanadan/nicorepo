@@ -1,0 +1,1139 @@
+{
+  "meta": {
+    "status": 200,
+    "maxId": "1497357678822-a0dd13b2f00497f630f093daf365cf98ff0c387b",
+    "minId": "1497279829096-a70179459f77d89e29ef2c9b4ba81c9899e20d37",
+    "impressionId": "49a44143-820e-495f-adca-fd7b1c3580b7",
+    "clientAppGroup": "nicorepo",
+    "_limit": 25
+  },
+  "data": [
+    {
+      "id": "1497357678822-a0dd13b2f00497f630f093daf365cf98ff0c387b",
+      "topic": "nicovideo.user.mylist.add.video",
+      "createdAt": "2017-06-13T21:41:18.822+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "37757430",
+          "type": "user"
+        },
+        "trigger": "mylist.nicovideo_user_mylist_add_video"
+      },
+      "senderNiconicoUser": {
+        "nickname": "txdHIROSI",
+        "id": 37757430,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/3775/37757430.jpg?1388548442"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "video": {
+        "id": "sm31389881",
+        "resolution": {
+          "width": 640,
+          "height": 360
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr2.smilevideo.jp/smile?i=31389881"
+        },
+        "title": "【闇音レンリ】Day【オリジナル】",
+        "videoWatchPageId": "sm31389881"
+      },
+      "mylist": {
+        "name": "UTAU",
+        "id": 56753942
+      }
+    },
+    {
+      "id": "1497357644594-461c7e67fc9e1ea2db53b5536992a15e95505c5d",
+      "topic": "nicovideo.user.community.video.add",
+      "createdAt": "2017-06-13T21:40:44.594+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "40061133",
+          "type": "user"
+        },
+        "trigger": "video.nicovideo_user_community_video_add"
+      },
+      "senderNiconicoUser": {
+        "nickname": "ルカ拓也〈ウメタクP）",
+        "id": 40061133,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/4006/40061133.jpg?1448178153"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "communityForFollower": {
+        "name": "UTAU総合コミュ",
+        "id": "co4640",
+        "thumbnailUrl": {
+          "small": "http://icon.nimg.jp/community/s/0/co4640.jpg?1388368005"
+        }
+      },
+      "memberOnlyVideo": {
+        "id": "sm31390630",
+        "resolution": {
+          "width": 1282,
+          "height": 720
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr3.smilevideo.jp/smile?i=31390630"
+        },
+        "title": "(傷音ウサ-Air-)キリトリセン(UTAUカバー)",
+        "videoWatchPageId": "1497357644"
+      }
+    },
+    {
+      "id": "1497357303215-4f89782e5a39c3430c7f35cc929c3b051930fe08",
+      "topic": "nicoseiga.user.illust.upload",
+      "createdAt": "2017-06-13T21:35:03.215+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "17133427",
+          "type": "user"
+        },
+        "trigger": "illustImage.nicoseiga_user_illust_upload"
+      },
+      "senderNiconicoUser": {
+        "nickname": "田中草男",
+        "id": 17133427,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/1713/17133427.jpg?1493561977"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "illustImage": {
+        "urls": {
+          "pcUrl": "http://seiga.nicovideo.jp/seiga/im6791785",
+          "spUrl": "https://sp.seiga.nicovideo.jp/seiga/im6791785"
+        },
+        "id": "6791785",
+        "title": "お好きなチャームをレジに持ってきたアラフェネ",
+        "thumbnailUrl": "https://lohas.nicoseiga.jp/thumb/6791785z"
+      }
+    },
+    {
+      "id": "1497357132576-193be1a8b041e7f1304620c9d94580d9ae70cbb2",
+      "topic": "nicovideo.user.mylist.add.video",
+      "createdAt": "2017-06-13T21:32:12.576+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "37757430",
+          "type": "user"
+        },
+        "trigger": "mylist.nicovideo_user_mylist_add_video"
+      },
+      "senderNiconicoUser": {
+        "nickname": "txdHIROSI",
+        "id": 37757430,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/3775/37757430.jpg?1388548442"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "video": {
+        "id": "sm31389696",
+        "resolution": {
+          "width": 1280,
+          "height": 720
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr1.smilevideo.jp/smile?i=31389696"
+        },
+        "title": "【鏡音リン】Photograph【オリジナル】",
+        "videoWatchPageId": "sm31389696"
+      },
+      "mylist": {
+        "name": "RINちゃん・LENちゃん",
+        "id": 57460542
+      }
+    },
+    {
+      "id": "1497355605020-32e6b153fd2bf6701341ef2298043a767a5c05fb",
+      "topic": "live.user.program.onairs",
+      "createdAt": "2017-06-13T21:06:45.020+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "1148472",
+          "type": "user"
+        },
+        "trigger": "program.live_user_program_onairs"
+      },
+      "senderNiconicoUser": {
+        "nickname": "ひさちゅう",
+        "id": 1148472,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/114/1148472.jpg?1372747146"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "community": {
+        "name": "ひさちゅうさんのコミュニティ",
+        "id": "co2113724",
+        "thumbnailUrl": {
+          "small": "http://icon.nimg.jp/community/s/211/co2113724.jpg?1426328401"
+        }
+      },
+      "program": {
+        "id": "lv300518519",
+        "beginAt": "2017-06-13T21:06:41.000+09:00",
+        "isPayProgram": false,
+        "thumbnailUrl": "http://icon.nimg.jp/community/211/co2113724.jpg?1426328401",
+        "title": "ひさちゅうのPlayStation4ゲーム生放送"
+      }
+    },
+    {
+      "id": "1497353790582-460f576b61aa52c1111ccacc47b0139ad73af014",
+      "topic": "live.user.program.onairs",
+      "createdAt": "2017-06-13T20:36:30.582+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "1148472",
+          "type": "user"
+        },
+        "trigger": "program.live_user_program_onairs"
+      },
+      "senderNiconicoUser": {
+        "nickname": "ひさちゅう",
+        "id": 1148472,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/114/1148472.jpg?1372747146"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "community": {
+        "name": "ひさちゅうさんのコミュニティ",
+        "id": "co2113724",
+        "thumbnailUrl": {
+          "small": "http://icon.nimg.jp/community/s/211/co2113724.jpg?1426328401"
+        }
+      },
+      "program": {
+        "id": "lv300515317",
+        "beginAt": "2017-06-13T20:36:26.000+09:00",
+        "isPayProgram": false,
+        "thumbnailUrl": "http://icon.nimg.jp/community/211/co2113724.jpg?1426328401",
+        "title": "ひさちゅうのPlayStation4ゲーム生放送"
+      }
+    },
+    {
+      "id": "1497353549635-dfce27a9d2cb08ca6e7d30287453c3b0c151438a",
+      "topic": "nicoseiga.user.illust.upload",
+      "createdAt": "2017-06-13T20:32:29.635+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "1148472",
+          "type": "user"
+        },
+        "trigger": "illustImage.nicoseiga_user_illust_upload"
+      },
+      "senderNiconicoUser": {
+        "nickname": "ひさちゅう",
+        "id": 1148472,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/114/1148472.jpg?1372747146"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "illustImage": {
+        "urls": {
+          "pcUrl": "http://seiga.nicovideo.jp/seiga/im6791617",
+          "spUrl": "https://sp.seiga.nicovideo.jp/seiga/im6791617"
+        },
+        "id": "6791617",
+        "title": "１コマ漫画",
+        "thumbnailUrl": "https://lohas.nicoseiga.jp/thumb/6791617z"
+      }
+    },
+    {
+      "id": "1497352447436-a4c764fae684697f3f54c76cb3f807730c5f620b",
+      "topic": "live.user.program.onairs",
+      "createdAt": "2017-06-13T20:14:07.436+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "1148472",
+          "type": "user"
+        },
+        "trigger": "program.live_user_program_onairs"
+      },
+      "senderNiconicoUser": {
+        "nickname": "ひさちゅう",
+        "id": 1148472,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/114/1148472.jpg?1372747146"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "community": {
+        "name": "ひさちゅうさんのコミュニティ",
+        "id": "co2113724",
+        "thumbnailUrl": {
+          "small": "http://icon.nimg.jp/community/s/211/co2113724.jpg?1426328401"
+        }
+      },
+      "program": {
+        "id": "lv300513282",
+        "beginAt": "2017-06-13T20:13:33.000+09:00",
+        "isPayProgram": false,
+        "thumbnailUrl": "http://icon.nimg.jp/community/211/co2113724.jpg?1426328401",
+        "title": "だらだら配信"
+      }
+    },
+    {
+      "id": "1497352365286-5111b4f2f29435b97d337a0a9b2913e8bd17db0b",
+      "topic": "nicovideo.user.temporary_mylist.add.video",
+      "createdAt": "2017-06-13T20:12:45.286+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": true,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "3920506",
+          "type": "user"
+        },
+        "trigger": "mylist.nicovideo_user_temporary_mylist_add_video"
+      },
+      "senderNiconicoUser": {
+        "nickname": "真田　保",
+        "id": 3920506,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/392/3920506.jpg?1457099834"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "video": {
+        "id": "so31355613",
+        "resolution": {
+          "width": 854,
+          "height": 480
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr2.smilevideo.jp/smile?i=31355613"
+        },
+        "title": "兄に付ける薬はない！-快把我哥帯走-　EPISODE10「時分的暴走」",
+        "videoWatchPageId": "1496903226"
+      }
+    },
+    {
+      "id": "1497350547400-78a64ef5820eb1e9cce56f477a2cb0a59c496820",
+      "topic": "live.user.program.onairs",
+      "createdAt": "2017-06-13T19:42:27.400+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "1148472",
+          "type": "user"
+        },
+        "trigger": "program.live_user_program_onairs"
+      },
+      "senderNiconicoUser": {
+        "nickname": "ひさちゅう",
+        "id": 1148472,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/114/1148472.jpg?1372747146"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "community": {
+        "name": "ひさちゅうさんのコミュニティ",
+        "id": "co2113724",
+        "thumbnailUrl": {
+          "small": "http://icon.nimg.jp/community/s/211/co2113724.jpg?1426328401"
+        }
+      },
+      "program": {
+        "id": "lv300510878",
+        "beginAt": "2017-06-13T19:41:40.000+09:00",
+        "isPayProgram": false,
+        "thumbnailUrl": "http://icon.nimg.jp/community/211/co2113724.jpg?1426328401",
+        "title": "だらだら配信"
+      }
+    },
+    {
+      "id": "1497349912773-532cb7aa84009ccc4b828c0e7f156ca181d3f800",
+      "topic": "live.user.program.onairs",
+      "createdAt": "2017-06-13T19:31:52.773+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "1399358",
+          "type": "user"
+        },
+        "trigger": "program.live_user_program_onairs"
+      },
+      "senderNiconicoUser": {
+        "nickname": "ふにちか",
+        "id": 1399358,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/139/1399358.jpg?1437649425"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "community": {
+        "name": "ふにちか専用コミュニティ",
+        "id": "co288063",
+        "thumbnailUrl": {
+          "small": "http://icon.nimg.jp/community/s/28/co288063.jpg?1476870420"
+        }
+      },
+      "program": {
+        "id": "lv300510185",
+        "beginAt": "2017-06-13T19:30:54.000+09:00",
+        "isPayProgram": false,
+        "thumbnailUrl": "http://icon.nimg.jp/community/28/co288063.jpg?1476870420",
+        "title": "お絵かき配信"
+      }
+    },
+    {
+      "id": "1497347099316-ccea74e7ce3bf37c165e8d7e655a3b424e894b73",
+      "topic": "nicoseiga.user.illust.upload",
+      "createdAt": "2017-06-13T18:44:59.316+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "1927005",
+          "type": "user"
+        },
+        "trigger": "illustImage.nicoseiga_user_illust_upload"
+      },
+      "senderNiconicoUser": {
+        "nickname": "須藤のぼる",
+        "id": 1927005,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/192/1927005.jpg?1339585382"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "illustImage": {
+        "urls": {
+          "pcUrl": "http://seiga.nicovideo.jp/seiga/im6791352",
+          "spUrl": "https://sp.seiga.nicovideo.jp/seiga/im6791352"
+        },
+        "id": "6791352",
+        "title": "干物を作るサーバル",
+        "thumbnailUrl": "https://lohas.nicoseiga.jp/thumb/6791352z"
+      }
+    },
+    {
+      "id": "1497346955272-00cc714432939e97135e70f2c547db30025986d2",
+      "topic": "nicovideo.user.video.upload",
+      "createdAt": "2017-06-13T18:42:35.272+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "704637",
+          "type": "user"
+        },
+        "trigger": "video.nicovideo_user_video_upload"
+      },
+      "senderNiconicoUser": {
+        "nickname": "すっしーP",
+        "id": 704637,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/70/704637.jpg?1488303449"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "video": {
+        "id": "sm31389481",
+        "resolution": {
+          "width": 1280,
+          "height": 720
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr2.smilevideo.jp/smile?i=31389481"
+        },
+        "title": "【MMD艦これ】辺境ちんじふ騒動記改にじゅうなな【4コマ劇場】",
+        "videoWatchPageId": "sm31389481"
+      }
+    },
+    {
+      "id": "1497343480014-8d962b7589352d09e9d53de1aa86a4d452f4c361",
+      "topic": "nicovideo.user.community.video.add",
+      "createdAt": "2017-06-13T17:44:40.014+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "1871069",
+          "type": "user"
+        },
+        "trigger": "video.nicovideo_user_community_video_add"
+      },
+      "senderNiconicoUser": {
+        "nickname": "番煎P／有魚神弥",
+        "id": 1871069,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/187/1871069.jpg?1429018170"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "communityForFollower": {
+        "name": "UTAU総合コミュ",
+        "id": "co4640",
+        "thumbnailUrl": {
+          "small": "http://icon.nimg.jp/community/s/0/co4640.jpg?1388368005"
+        }
+      },
+      "memberOnlyVideo": {
+        "id": "sm31389185",
+        "resolution": {
+          "width": 854,
+          "height": 480
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr2.smilevideo.jp/smile?i=31389185"
+        },
+        "title": "【番煎v.m.g.伊予苑音源＋α】VOCALOID BOX vol.1【UTAUカバー】",
+        "videoWatchPageId": "1497343480"
+      }
+    },
+    {
+      "id": "1497332017317-7655759a094089e9762665cd77dbe8a20e949adf",
+      "topic": "nicovideo.user.mylist.add.video",
+      "createdAt": "2017-06-13T14:33:37.317+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "37757430",
+          "type": "user"
+        },
+        "trigger": "mylist.nicovideo_user_mylist_add_video"
+      },
+      "senderNiconicoUser": {
+        "nickname": "txdHIROSI",
+        "id": 37757430,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/3775/37757430.jpg?1388548442"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "video": {
+        "id": "sm31387018",
+        "resolution": {
+          "width": 1280,
+          "height": 720
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr3.smilevideo.jp/smile?i=31387018"
+        },
+        "title": "【UTAUオリジナル曲】Size animation 【白鐘ヒスイ】",
+        "videoWatchPageId": "sm31387018"
+      },
+      "mylist": {
+        "name": "UTAU",
+        "id": 56753942
+      }
+    },
+    {
+      "id": "1497316015306-4aab1a619a6cdbe8f324ab6a02b053486ef8932c",
+      "topic": "nicovideo.user.mylist.add.video",
+      "createdAt": "2017-06-13T10:06:55.306+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "37757430",
+          "type": "user"
+        },
+        "trigger": "mylist.nicovideo_user_mylist_add_video"
+      },
+      "senderNiconicoUser": {
+        "nickname": "txdHIROSI",
+        "id": 37757430,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/3775/37757430.jpg?1388548442"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "video": {
+        "id": "sm31387272",
+        "resolution": {
+          "width": 1280,
+          "height": 720
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr1.smilevideo.jp/smile?i=31387272"
+        },
+        "title": "【kokone】Symbol Tower【オリジナル曲】",
+        "videoWatchPageId": "sm31387272"
+      },
+      "mylist": {
+        "name": "KOKONE",
+        "id": 56737746
+      }
+    },
+    {
+      "id": "1497315456090-0dc03ea8ee05488ffce792f61713aeb74e48881c",
+      "topic": "nicovideo.user.mylist.add.video",
+      "createdAt": "2017-06-13T09:57:36.090+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "37757430",
+          "type": "user"
+        },
+        "trigger": "mylist.nicovideo_user_mylist_add_video"
+      },
+      "senderNiconicoUser": {
+        "nickname": "txdHIROSI",
+        "id": 37757430,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/3775/37757430.jpg?1388548442"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "video": {
+        "id": "sm31382007",
+        "resolution": {
+          "width": 960,
+          "height": 540
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr4.smilevideo.jp/smile?i=31382007"
+        },
+        "title": "【UTAUオリジナル】プリジアン【雪歌ユフ】",
+        "videoWatchPageId": "sm31382007"
+      },
+      "mylist": {
+        "name": "UTAU",
+        "id": 56753942
+      }
+    },
+    {
+      "id": "1497312397778-b6a0a92d8d8087a969b2dbfd030944fb9d4a5f74",
+      "topic": "nicovideo.user.mylist.add.video",
+      "createdAt": "2017-06-13T09:06:37.778+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "37757430",
+          "type": "user"
+        },
+        "trigger": "mylist.nicovideo_user_mylist_add_video"
+      },
+      "senderNiconicoUser": {
+        "nickname": "txdHIROSI",
+        "id": 37757430,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/3775/37757430.jpg?1388548442"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "video": {
+        "id": "sm31361382",
+        "resolution": {
+          "width": 854,
+          "height": 480
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr3.smilevideo.jp/smile?i=31361382"
+        },
+        "title": "【初音ミク】 夢の世界へ 【オリジナル】",
+        "videoWatchPageId": "sm31361382"
+      },
+      "mylist": {
+        "name": "自分の作品",
+        "id": 56737752
+      }
+    },
+    {
+      "id": "1497311915869-2379a659a95c7a0e22953bb9d0f4bc2e414198fc",
+      "topic": "nicovideo.user.community.video.add",
+      "createdAt": "2017-06-13T08:58:35.869+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "26624498",
+          "type": "user"
+        },
+        "trigger": "video.nicovideo_user_community_video_add"
+      },
+      "senderNiconicoUser": {
+        "nickname": "ＪＵＩＣＥ",
+        "id": 26624498,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/2662/26624498.jpg?1396445635"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "communityForFollower": {
+        "name": "UTAU放送局",
+        "id": "co24799",
+        "thumbnailUrl": {
+          "small": "http://icon.nimg.jp/community/s/2/co24799.jpg?1398750362"
+        }
+      },
+      "memberOnlyVideo": {
+        "id": "sm31256106",
+        "resolution": {
+          "width": 1280,
+          "height": 720
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr3.smilevideo.jp/smile?i=31256106"
+        },
+        "title": "【闇音レンリ】  EXODUS  【オリジナル曲】",
+        "videoWatchPageId": "1497311915"
+      }
+    },
+    {
+      "id": "1497311781246-4e10ce9cdf391cc3ac7171dfc5b7a7d8a7639e95",
+      "topic": "nicovideo.user.community.video.add",
+      "createdAt": "2017-06-13T08:56:21.246+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "26624498",
+          "type": "user"
+        },
+        "trigger": "video.nicovideo_user_community_video_add"
+      },
+      "senderNiconicoUser": {
+        "nickname": "ＪＵＩＣＥ",
+        "id": 26624498,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/2662/26624498.jpg?1396445635"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "communityForFollower": {
+        "name": "UTAU総合コミュ",
+        "id": "co4640",
+        "thumbnailUrl": {
+          "small": "http://icon.nimg.jp/community/s/0/co4640.jpg?1388368005"
+        }
+      },
+      "memberOnlyVideo": {
+        "id": "sm31256106",
+        "resolution": {
+          "width": 1280,
+          "height": 720
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr3.smilevideo.jp/smile?i=31256106"
+        },
+        "title": "【闇音レンリ】  EXODUS  【オリジナル曲】",
+        "videoWatchPageId": "1497311781"
+      }
+    },
+    {
+      "id": "1497307130524-6c5d050e4cc4079248f9bf818dd78a434df57b24",
+      "topic": "nicovideo.user.video.update_highest_rankings",
+      "createdAt": "2017-06-13T07:38:50.524+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "37757430",
+          "type": "user"
+        },
+        "trigger": "video.nicovideo_user_video_update_highest_rankings"
+      },
+      "senderNiconicoUser": {
+        "nickname": "txdHIROSI",
+        "id": 37757430,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/3775/37757430.jpg?1388548442"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": {
+        "newHighestRanking": 60,
+        "rankingType": "fav",
+        "rankingSpan": "daily",
+        "rankingCategory": "VOCALOID"
+      },
+      "video": {
+        "id": "sm31361382",
+        "resolution": {
+          "width": 854,
+          "height": 480
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr3.smilevideo.jp/smile?i=31361382"
+        },
+        "title": "【初音ミク】 夢の世界へ 【オリジナル】",
+        "videoWatchPageId": "sm31361382"
+      }
+    },
+    {
+      "id": "1497305540384-892c7c3b850897982c20d05d0beed401654f4a62",
+      "topic": "nicoseiga.user.illust.upload",
+      "createdAt": "2017-06-13T07:12:20.384+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "35020306",
+          "type": "user"
+        },
+        "trigger": "illustImage.nicoseiga_user_illust_upload"
+      },
+      "senderNiconicoUser": {
+        "nickname": "奥之",
+        "id": 35020306,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/3502/35020306.jpg?1420073394"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "illustImage": {
+        "urls": {
+          "pcUrl": "http://seiga.nicovideo.jp/seiga/im6790259",
+          "spUrl": "https://sp.seiga.nicovideo.jp/seiga/im6790259"
+        },
+        "id": "6790259",
+        "title": "クナ尻",
+        "thumbnailUrl": "https://lohas.nicoseiga.jp/thumb/6790259z"
+      }
+    },
+    {
+      "id": "1497287284000-c00613b3195106442f36fb2decd92b81ddb2e228",
+      "topic": "nicovideo.user.video.advertise",
+      "createdAt": "2017-06-13T02:08:04.000+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "563360",
+          "type": "user"
+        },
+        "trigger": "video.nicovideo_user_video_advertise"
+      },
+      "senderNiconicoUser": {
+        "nickname": "マスク・ザ・春原",
+        "id": 563360,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/56/563360.jpg?1258474645"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "video": {
+        "id": "sm31384898",
+        "resolution": {
+          "width": 960,
+          "height": 540
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr3.smilevideo.jp/smile?i=31384898"
+        },
+        "title": "【MMD吹奏楽部】ミクさんたちで 「華円舞」 金管八重奏（未完成）",
+        "videoWatchPageId": "sm31384898"
+      },
+      "uad": {
+        "nickname": "マスク・ザ・春原",
+        "message": "最初で最後？まあそう言わず"
+      }
+    },
+    {
+      "id": "1497280828541-0b1646d04e321b5d2858b6da0232d83efea6d92a",
+      "topic": "nicovideo.user.mylist.add.video",
+      "createdAt": "2017-06-13T00:20:28.541+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "914245",
+          "type": "user"
+        },
+        "trigger": "mylist.nicovideo_user_mylist_add_video"
+      },
+      "senderNiconicoUser": {
+        "nickname": "comet",
+        "id": 914245,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/91/914245.jpg?1257260779"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "video": {
+        "id": "so30247025",
+        "resolution": {
+          "width": 854,
+          "height": 480
+        },
+        "status": "PUBLIC",
+        "thumbnailUrl": {
+          "normal": "http://tn-skr2.smilevideo.jp/smile?i=30247025"
+        },
+        "title": "【再編集】秋の弾丸ビバーク　1/4",
+        "videoWatchPageId": "1482005266"
+      },
+      "mylist": {
+        "name": "実況２",
+        "id": 50697865
+      }
+    },
+    {
+      "id": "1497279829096-a70179459f77d89e29ef2c9b4ba81c9899e20d37",
+      "topic": "nicoseiga.user.illust.upload",
+      "createdAt": "2017-06-13T00:03:49.096+09:00",
+      "isVisible": true,
+      "isMuted": false,
+      "isDeletable": false,
+      "muteContext": {
+        "sender": {
+          "idType": "user",
+          "id": "19708656",
+          "type": "user"
+        },
+        "trigger": "illustImage.nicoseiga_user_illust_upload"
+      },
+      "senderNiconicoUser": {
+        "nickname": "さきの新月",
+        "id": 19708656,
+        "icons": {
+          "tags": {
+            "defaultValue": {
+              "urls": {
+                "s50x50": "https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/1970/19708656.jpg?1387119502"
+              }
+            }
+          }
+        }
+      },
+      "actionLog": [],
+      "illustImage": {
+        "urls": {
+          "pcUrl": "http://seiga.nicovideo.jp/seiga/im6789955",
+          "spUrl": "https://sp.seiga.nicovideo.jp/seiga/im6789955"
+        },
+        "id": "6789955",
+        "title": "あやねる(馬)",
+        "thumbnailUrl": "https://lohas.nicoseiga.jp/thumb/6789955z"
+      }
+    }
+  ],
+  "errors": [],
+  "status": "ok"
+}

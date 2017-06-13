@@ -1,0 +1,253 @@
+---
+- :name: uid
+  :value: '7856446206241607008'
+  :path: "/"
+  :domain: ".turn.com"
+  :expires: 2017-12-10 10:55:41.425167129 +00:00
+  :secure: false
+- :name: i
+  :value: 8792e6f3-7473-47eb-922c-44ba6fb5cbca|1497351326
+  :path: "/"
+  :domain: ".openx.net"
+  :expires: 2018-06-13 10:55:42.474775133 +00:00
+  :secure: false
+- :name: rpb
+  :value: 7430%3D1%26230106%3D1%264894%3D1%26377322%3D1%264212%3D1%26191940%3D1%26109108%3D1%264210%3D1%2631950%3D1%264222%3D1%2613490%3D1%268981%3D1%2614240%3D1
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-07-13 10:55:41.998373950 +00:00
+  :secure: false
+- :name: put_2238
+  :value: da80c19d-98a1-4a09-91f7-8d15ebd1d010
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2018-06-08 10:00:03.676503059 +00:00
+  :secure: false
+- :name: put_4604
+  :value: eRYWxc5m1X
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-07-13 10:00:03.583394154 +00:00
+  :secure: false
+- :name: put_1185
+  :value: '7856446206241607008'
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-08-12 10:00:03.535157768 +00:00
+  :secure: false
+- :name: put_2307
+  :value: 100fd567-f6d5-429f-855b-f0a62b752592
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-07-13 10:00:03.490746045 +00:00
+  :secure: false
+- :name: put_1523
+  :value: l7JxajqN1DkJu15
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-07-13 10:00:03.327671089 +00:00
+  :secure: false
+- :name: put_2676
+  :value: '806605371896479997'
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-07-13 10:00:02.999465831 +00:00
+  :secure: false
+- :name: put_2974
+  :value: '6432765528205991553'
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-07-13 10:00:02.714712988 +00:00
+  :secure: false
+- :name: put_1986
+  :value: '5125341483090817486'
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-07-13 10:00:03.317408182 +00:00
+  :secure: false
+- :name: pux
+  :value: 1185%3D65299%261512%3D65299%261986%3D65299%262146%3D65299%262238%3D65299%262249%3D65299%262307%3D65299%262596%3D65299%262676%3D65299%262974%3D65299%263778%3D65299%263876%3D65299%264604%3D65299%264968%3D65299%26w55c%3D65299%26rp%3D65299%26
+  :path: "/"
+  :domain: tap2-cdn.rubiconproject.com
+  :expires: 2017-09-11 10:55:41.000000015 +00:00
+  :secure: false
+- :name: csi9
+  :value: ''
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-06-20 10:55:41.211419168 +00:00
+  :secure: false
+- :name: _gid
+  :value: GA1.2.216721431.1497351330
+  :path: "/"
+  :domain: ".nicovideo.jp"
+  :expires: 2017-06-14 10:55:38.999999862 +00:00
+  :secure: false
+- :name: ses9
+  :value: 78342^2
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-06-13 23:00:03.211143147 +00:00
+  :secure: false
+- :name: put_2596
+  :value: '692217349654444122'
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-07-13 10:00:03.174088954 +00:00
+  :secure: false
+- :name: vis9
+  :value: 78342^2
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-06-13 23:00:03.211236815 +00:00
+  :secure: false
+- :name: csc2
+  :value: ''
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-06-20 10:55:40.814241744 +00:00
+  :secure: false
+- :name: ses2
+  :value: 78342^2
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-06-13 23:00:02.814034873 +00:00
+  :secure: false
+- :name: OX_plg
+  :value: swf|shk|pm
+  :path: "/"
+  :domain: ads.nicovideo.jp
+  :expires: 
+  :secure: false
+- :name: rsid
+  :value: CNqWEC/zp4pTFentc1IEz692LKSS1x1kse/CE0W9wXF4D8ehZjGUT59gb+FRmcA329hPoR9moHPJc+IjGPc+Uv50q8EBdXiwZciZ7sGzAOVbY9Yu71S3MDQ4kGs4+1/+HaK2V85rFqlH4kXk5QCx1Ov+VvzChkM3Ns5ljwo=
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 
+  :secure: false
+- :name: rdk2
+  :value: '0'
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-06-13 10:55:50.813964021 +00:00
+  :secure: false
+- :name: user_session
+  :value: user_session_3920506_48dca47d8d9d8fd0f5233d904a48b787baa9fe32a934aa51b3b6e69c7e4d0ade
+  :path: "/"
+  :domain: ".nicovideo.jp"
+  :expires: 2017-07-13 10:55:32.627593959 +00:00
+  :secure: false
+- :name: ruid
+  :value: 5707273a593fc4a4ddba01b30b7924^1^1497351332^3719954867
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-09-11 10:55:35.779325129 +00:00
+  :secure: false
+- :name: put_3876
+  :value: '5125341483090817486'
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-07-13 10:00:03.554260964 +00:00
+  :secure: false
+- :name: _ga
+  :value: GA1.2.1849548968.1497351330
+  :path: "/"
+  :domain: ".nicovideo.jp"
+  :expires: 2019-06-13 10:55:38.999999862 +00:00
+  :secure: false
+- :name: put_4968
+  :value: '5125341483090817486'
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-07-13 10:00:03.323456040 +00:00
+  :secure: false
+- :name: _dc_gtm_UA-88451119-1
+  :value: '1'
+  :path: "/"
+  :domain: ".nicovideo.jp"
+  :expires: 2017-06-13 10:56:34.000000146 +00:00
+  :secure: false
+- :name: csi2
+  :value: ''
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-06-20 10:55:40.814176050 +00:00
+  :secure: false
+- :name: nicorepo_filter
+  :value: all
+  :path: "/"
+  :domain: ".nicovideo.jp"
+  :expires: 2018-06-13 10:55:39.558830881 +00:00
+  :secure: false
+- :name: vis2
+  :value: 78342^2
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-06-13 23:00:02.814111882 +00:00
+  :secure: false
+- :name: khaos
+  :value: J3VGBN4E-21-FR9Q
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-12-12 22:55:42.001972930 +00:00
+  :secure: false
+- :name: _gat
+  :value: '1'
+  :path: "/"
+  :domain: ".nicovideo.jp"
+  :expires: 2017-06-13 10:56:28.999999920 +00:00
+  :secure: false
+- :name: put_3778
+  :value: WT-EoAAAAF00Qm4X
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-07-13 10:00:02.705111098 +00:00
+  :secure: false
+- :name: csc9
+  :value: ''
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-06-20 10:55:41.211476061 +00:00
+  :secure: false
+- :name: rdk9
+  :value: '0'
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-06-13 10:55:51.210935251 +00:00
+  :secure: false
+- :name: pd
+  :value: v2|1497351333.1|bCjxlFbzi2bXbUi3c3bI.lJdRkjkzbRc0eKbFdd
+  :path: "/"
+  :domain: ".openx.net"
+  :expires: 2017-06-28 10:55:42.474891746 +00:00
+  :secure: false
+- :name: _gali
+  :value: login__submit
+  :path: "/"
+  :domain: ".nicovideo.jp"
+  :expires: 2017-06-13 10:56:03.000000129 +00:00
+  :secure: false
+- :name: _dc_gtm_UA-88451119-5
+  :value: '1'
+  :path: "/"
+  :domain: ".nicovideo.jp"
+  :expires: 2017-06-13 10:56:28.999999920 +00:00
+  :secure: false
+- :name: rdk
+  :value: 14490/78342
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-06-13 10:56:41.210779091 +00:00
+  :secure: false
+- :name: put_1512
+  :value: 15cf5940-c49f-4a00-80b3-0ee0a5a59a68
+  :path: "/"
+  :domain: ".rubiconproject.com"
+  :expires: 2017-07-13 10:00:03.109901072 +00:00
+  :secure: false
+- :name: nicosid
+  :value: '1497351325.1441800759'
+  :path: "/"
+  :domain: ".nicovideo.jp"
+  :expires: 2027-06-11 10:55:28.658502130 +00:00
+  :secure: false

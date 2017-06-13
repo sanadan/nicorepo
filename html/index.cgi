@@ -3,8 +3,9 @@
 NICO_PIT = 'www.nicovideo.jp'
 NICOREPO_URI = 'http://www.nicovideo.jp/my/top'
 THUMBNAIL_TAG = 'data-original'
+NICOREPO_API = 'http://www.nicovideo.jp/api/nicorepo/timeline/my/all?client_app=pc_myrepo'
 
-require 'bundler/setup'
+require 'bundler'
 Bundler.require
 require 'rss/maker'
 
@@ -18,35 +19,44 @@ def main
   config[ 'token' ] = nico.token
   Pitcgi.set( NICO_PIT, :data => config )
 
-  page = nico.agent.get( NICOREPO_URI )
-  page.search( '.log-content' ).each do |data|
+  json = nico.agent.get( NICOREPO_API ).body
+File.write( 'o.json', json )
+  nicorepo = JSON.parse( json )
+  nicorepo[ 'data' ].each do |data|
     item = {}
-    item[ :title ] = data.at( '.log-body' ).text.gsub( /[\t\r\n]/, '' )
-    link = data.at( '.log-target a' )
-    if ( link == nil ) then
-      link = data.at( '.log-body a' )
+    item[ :id ] = data[ 'id' ]
+    item[ :time ] = data[ 'createdAt' ]
+    item[ :title ] = ''
+    user = data[ 'senderNiconicoUser' ]
+    item[ :body ] = '<img src="' + user[ 'icons' ][ 'tags' ][ 'defaultValue' ][ 'urls' ][ 's50x50' ] + '">'
+    item[ :body ] += user[ 'nickname' ] + ' さんが'
+    video = data[ 'video' ]
+    video ||= data[ 'memberOnlyVideo' ]
+    if video
+      if data[ 'video' ]
+        item[ :body ] += '動画を投稿しました。<br>'
+      else
+        community = data[ 'communityForFollower' ]
+        item[ :body ] += 'コミュニティ ' + community[ 'name' ] + ' に動画を追加しました。<br>'
+      end
+      item[ :title ] = video[ 'title' ]
+      item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
+      item[ :body ] += '<img src="' + video[ 'thumbnailUrl' ][ 'normal' ] + '">'
+    elsif data[ 'illustImage' ]
+      image = data[ 'illustImage' ]
+      item[ :title ] = image[ 'title' ]
+      item[ :body ] += 'イラストを投稿しました。<br>'
+      item[ :body ] += '<img src="' + image[ 'thumbnailUrl' ] + '">'
+    elsif data[ 'program' ]
+      program = data[ 'program' ]
+      item[ :title ] = program[ 'title' ]
+      community = data[ 'community' ]
+      item[ :body ] += 'コミュニティ ' + community[ 'name' ] + ' で生放送を開始しました。<br>'
+      item[ :body ] += '<img src="' + program[ 'thumbnailUrl' ] + '">'
+    else
+      item[ :body ] += data.to_s
     end
-    item[ :link ] = link.attribute( 'href' )
-    body = data.dup
-    nicoru = body.at( '.nicoru-positioned' )
-    nicoru.remove if nicoru
-    body.at( '.log-reslist' ).remove
-    body.at( '.log-footer' ).remove
-    body.children.each do |child|
-      child.remove if child.comment?
-    end
-    body.at( '.log-details' ).children.each do |child|
-      child.remove if child.comment?
-    end
-    img = body.at( '.log-details img' )
-    if ( img != nil ) then
-      img[ 'src' ] = img[ THUMBNAIL_TAG ]
-      img.delete( THUMBNAIL_TAG )
-      img[ 'align' ] = 'left'
-    end
-    item[ :body ] = body.inner_html.gsub( /[\t\r\n]/, ' ' )
-    item[ :time ] = data.search( '.relative' ).attribute( 'datetime' )
-
+    
     @feed_items << item
   end
 end
