@@ -34,10 +34,10 @@ def main
     video ||= data[ 'memberOnlyVideo' ]
     if video
       if data[ 'video' ]
-        item[ :body ] += '動画を投稿しました。<br>'
+        item[ :body ] += '動画を投稿しました。'
       else
         community = data[ 'communityForFollower' ]
-        item[ :body ] += 'コミュニティ ' + community[ 'name' ] + ' に動画を追加しました。<br>'
+        item[ :body ] += 'コミュニティ ' + community[ 'name' ] + ' に動画を追加しました。'
       end
       item[ :title ] = video[ 'title' ]
       item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
@@ -46,15 +46,21 @@ def main
       image = data[ 'illustImage' ]
       item[ :title ] = image[ 'title' ]
       item[ :link ] = image[ 'urls' ][ 'pcUrl' ]
-      item[ :body ] += 'イラストを投稿しました。<br>'
+      item[ :body ] += 'イラストを投稿しました。'
       item[ :body ] = '<img style="vertical-align: top;" src="' + image[ 'thumbnailUrl' ] + '">' + item[ :body ]
     elsif data[ 'program' ]
       program = data[ 'program' ]
       item[ :title ] = program[ 'title' ]
       item[ :link ] = 'http://live.nicovideo.jp/watch/' + program[ 'id' ]
       community = data[ 'community' ]
-      item[ :body ] += 'コミュニティ ' + community[ 'name' ] + ' で生放送を開始しました。<br>'
+      item[ :body ] += 'コミュニティ ' + community[ 'name' ] + ' で生放送を開始しました。'
       item[ :body ] = '<img style="vertical-align: top;" src="' + program[ 'thumbnailUrl' ] + '">' + item[ :body ]
+    elsif data[ 'mangaContent' ]
+      manga = data[ 'mangaContent' ]
+      item[ :title ] = manga[ 'title' ]
+      item[ :link ] = manga[ 'urls' ][ 'pcUrl' ]
+      item[ :body ] += 'マンガをお気に入りしました。'
+      item[ :body ] = '<img style="vertical-align: top;" src="' + manga[ 'thumbnailUrl' ] + '">' + item[ :body ]
     else
       item[ :body ] += data.to_s
     end
