@@ -28,7 +28,7 @@ File.write( 'o.json', json )
     item[ :time ] = data[ 'createdAt' ]
     item[ :title ] = ''
     user = data[ 'senderNiconicoUser' ]
-    item[ :body ] = '<img src="' + user[ 'icons' ][ 'tags' ][ 'defaultValue' ][ 'urls' ][ 's50x50' ] + '">'
+    item[ :body ] = '<img style="vertical-align: top;" src="' + user[ 'icons' ][ 'tags' ][ 'defaultValue' ][ 'urls' ][ 's50x50' ] + '">'
     item[ :body ] += user[ 'nickname' ] + ' さんが'
     video = data[ 'video' ]
     video ||= data[ 'memberOnlyVideo' ]
@@ -41,18 +41,20 @@ File.write( 'o.json', json )
       end
       item[ :title ] = video[ 'title' ]
       item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
-      item[ :body ] += '<img src="' + video[ 'thumbnailUrl' ][ 'normal' ] + '">'
+      item[ :body ] = '<img style="vertical-align: top;" src="' + video[ 'thumbnailUrl' ][ 'normal' ] + '">' + item[ :body ]
     elsif data[ 'illustImage' ]
       image = data[ 'illustImage' ]
       item[ :title ] = image[ 'title' ]
+      item[ :link ] = image[ 'urls' ][ 'pcUrl' ]
       item[ :body ] += 'イラストを投稿しました。<br>'
-      item[ :body ] += '<img src="' + image[ 'thumbnailUrl' ] + '">'
+      item[ :body ] = '<img style="vertical-align: top;" src="' + image[ 'thumbnailUrl' ] + '">' + item[ :body ]
     elsif data[ 'program' ]
       program = data[ 'program' ]
       item[ :title ] = program[ 'title' ]
+      item[ :link ] = 'http://live.nicovideo.jp/watch/' + program[ 'id' ]
       community = data[ 'community' ]
       item[ :body ] += 'コミュニティ ' + community[ 'name' ] + ' で生放送を開始しました。<br>'
-      item[ :body ] += '<img src="' + program[ 'thumbnailUrl' ] + '">'
+      item[ :body ] = '<img style="vertical-align: top;" src="' + program[ 'thumbnailUrl' ] + '">' + item[ :body ]
     else
       item[ :body ] += data.to_s
     end
