@@ -28,8 +28,10 @@ def main
     item[ :time ] = data[ 'createdAt' ]
     item[ :title ] = ''
     user = data[ 'senderNiconicoUser' ]
-    item[ :body ] = '<img style="vertical-align: top;" src="' + user[ 'icons' ][ 'tags' ][ 'defaultValue' ][ 'urls' ][ 's50x50' ] + '">'
-    item[ :body ] += user[ 'nickname' ] + ' さんが'
+    if user
+      item[ :body ] = '<img style="vertical-align: top;" src="' + user[ 'icons' ][ 'tags' ][ 'defaultValue' ][ 'urls' ][ 's50x50' ] + '">'
+      item[ :body ] += user[ 'nickname' ] + ' さんが'
+    end
     video = data[ 'video' ]
     video ||= data[ 'memberOnlyVideo' ]
     if video
@@ -52,9 +54,15 @@ def main
       program = data[ 'program' ]
       item[ :title ] = program[ 'title' ]
       item[ :link ] = 'http://live.nicovideo.jp/watch/' + program[ 'id' ]
-      community = data[ 'community' ]
-      item[ :body ] += 'コミュニティ ' + community[ 'name' ] + ' で生放送を開始しました。'
-      item[ :body ] = '<img style="vertical-align: top;" src="' + program[ 'thumbnailUrl' ] + '">' + item[ :body ]
+      if data[ 'community' ]
+        community = data[ 'community' ]
+        item[ :body ] += 'コミュニティ ' + community[ 'name' ] + ' で生放送を開始しました。'
+        item[ :body ] = '<img style="vertical-align: top;" src="' + program[ 'thumbnailUrl' ] + '">' + item[ :body ]
+      elsif data[ 'senderChannel' ]
+        channel = data[ 'senderChannel' ]
+        item[ :body ] = '<img style="vertical-align: top;" src="' + channel[ 'thumbnailUrl' ] + '">'
+        item[ :body ] += 'チャンネル ' + channel[ 'name' ] + ' で生放送が開始されました。'
+      end
     elsif data[ 'mangaContent' ]
       manga = data[ 'mangaContent' ]
       item[ :title ] = manga[ 'title' ]
