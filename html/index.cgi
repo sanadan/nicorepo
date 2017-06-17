@@ -28,6 +28,7 @@ def main
     item[ :time ] = data[ 'createdAt' ]
     item[ :title ] = ''
     user = data[ 'senderNiconicoUser' ]
+    item[ :body ] = ''  # @@@@@ 暫定
     if user
       item[ :body ] = '<img style="vertical-align: top;" src="' + user[ 'icons' ][ 'tags' ][ 'defaultValue' ][ 'urls' ][ 's50x50' ] + '">'
       item[ :body ] += user[ 'nickname' ] + ' さんが'
