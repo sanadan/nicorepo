@@ -98,6 +98,12 @@ def main
       else
         item [:body ] += ' で ' + live[ 'beginAt' ] + ' からの生放送を予約しました。'
       end
+    when 'live.channel.program.onair'
+      live = data[ 'program' ]
+      item[ :title ] = live[ 'title' ]
+      item[ :link ] = 'http://live.nicovideo.jp/watch/' + live[ 'id' ]
+      channel = data[ 'senderChannel' ]
+      item[ :body ] += thumbnail( live[ 'thumbnailUrl' ] ) + ' ' + thumbnail( channel[ 'thumbnailUrl' ] ) + ' チャンネル ' + channel[ 'title' ] + ' で ' + live[ 'title' ] + ' で生放送が開始されました。'
     when 'nicoseiga.user.illust.upload'
       illust = data[ 'illustImage' ]
       item[ :title ] = illust[ 'title' ]
