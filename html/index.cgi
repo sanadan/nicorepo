@@ -98,18 +98,24 @@ def main
       else
         item [:body ] += ' で ' + live[ 'beginAt' ] + ' からの生放送を予約しました。'
       end
-    when 'live.channel.program.onair'
+    when 'live.channel.program.onairs'
       live = data[ 'program' ]
       item[ :title ] = live[ 'title' ]
       item[ :link ] = 'http://live.nicovideo.jp/watch/' + live[ 'id' ]
       channel = data[ 'senderChannel' ]
-      item[ :body ] += thumbnail( live[ 'thumbnailUrl' ] ) + ' ' + thumbnail( channel[ 'thumbnailUrl' ] ) + ' チャンネル ' + channel[ 'title' ] + ' で ' + live[ 'title' ] + ' で生放送が開始されました。'
+      item[ :body ] += thumbnail( live[ 'thumbnailUrl' ] ) + ' ' + thumbnail( channel[ 'thumbnailUrl' ] ) + ' チャンネル ' + channel[ 'name' ] + ' で生放送が開始されました。'
     when 'nicoseiga.user.illust.upload'
       illust = data[ 'illustImage' ]
       item[ :title ] = illust[ 'title' ]
       item[ :link ] = illust[ 'urls' ][ 'pcUrl' ]
       user = user( data )
       item[ :body ] += thumbnail( illust[ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがイラスト ' + illust[ 'title' ] + ' を投稿しました。'
+    when 'nicoseiga.user.illust.clip'
+      illust = data[ 'illustImage' ]
+      item[ :title ] = illust[ 'title' ]
+      item[ :link ] = illust[ 'urls' ][ 'pcUrl' ]
+      user = user( data )
+      item[ :body ] += thumbnail( illust[ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがイラスト ' + illust[ 'title' ] + ' をクリップしました。'
     when 'nicoseiga.user.manga.episode.upload'
       manga = data[ 'mangaEpisode' ]
       item[ :title ] = manga[ 'title' ]
