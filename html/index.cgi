@@ -3,7 +3,8 @@
 DEBUG = false 
 NICO_PIT = 'www.nicovideo.jp'
 NICOREPO_API = 'http://www.nicovideo.jp/api/nicorepo/timeline/my/all?client_app=pc_myrepo'
-STYLE = '<style type="text/css">img.nicorepo{float:left;}</style>'
+#STYLE = '<style type="text/css">img.nicorepo{float:left;}</style>'
+STYLE = ''
 User = Struct.new( :name, :thumbnail )
 Ranking = Struct.new( :highest, :type, :span, :category )
 
@@ -30,7 +31,7 @@ def ranking( data )
 end
 
 def thumbnail( url )
-  return '<img class="nicorepo" src="' + url + '">'
+  return '<img class="nicorepo" align="left" src="' + url + '">'
 end
 
 def main
@@ -122,6 +123,12 @@ def main
       item[ :link ] = manga[ 'urls' ][ 'pcUrl' ]
       user = user( data )
       item[ :body ] += thumbnail( manga[ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがマンガ ' + manga[ 'title' ] + ' を投稿しました。'
+    when 'nicoseiga.user.manga.content.favorite'
+      manga = data[ 'mangaContent' ]
+      item[ :title ] = manga[ 'title' ]
+      item[ :link ] = manga[ 'urls' ][ 'pcUrl' ]
+      user = user( data )
+      item[ :body ] += thumbnail( manga[ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがマンガ ' + manga[ 'title' ] + ' をお気に入りしました。'
     else
       item[ :title ] = '知らないレポート形式です。'
       item[ :body ] = JSON.pretty_generate( data )
