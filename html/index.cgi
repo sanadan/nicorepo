@@ -59,13 +59,18 @@ def main
       item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
       user = user( data )
       item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' を投稿しました。'
-    when 'nicovideo.user.mylist.add.video'
+    when 'nicovideo.user.mylist.add.video', 'nicovideo.user.temporary_mylist.add.video'
       video = data[ 'video' ]
       item[ :title ] = video[ 'title' ]
       item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
       user = user( data )
-      mylist = data[ 'mylist' ]
-      item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんの ' + video[ 'title' ] + ' がマイリスト ' + mylist[ 'name' ] + ' に追加されました。'
+      mylist = {}
+      if data[ 'topic' ] =~ /temporary_mylist/
+        mylist[ 'name' ] = 'とりあえずマイリスト'
+      else
+        mylist = data[ 'mylist' ]
+      end
+      item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' をマイリスト ' + mylist[ 'name' ] + ' に登録しました。'
     when 'nicovideo.user.community.video.add'
       video = data[ 'memberOnlyVideo' ]
       item[ :title ] = video[ 'title' ]
