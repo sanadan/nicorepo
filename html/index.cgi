@@ -92,6 +92,13 @@ def main
       user = user( data )
       ranking = ranking( data )
       item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんの ' + video[ 'title' ] + ' が ' + ranking.category + ' で ' + ranking.span + ' ' + ranking.highest.to_s + '位になりました。'
+    when 'nicovideo.user.video.advertise'
+      video = data[ 'video' ]
+      item[ :title ] = video[ 'title' ]
+      item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
+      user = user( data )
+      uad = data[ 'uad' ]
+      item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' を ニコニ広告 で宣伝しました。'
     when 'live.user.program.onairs', 'live.user.program.reserve'
       live = data[ 'program' ]
       item[ :title ] = live[ 'title' ]
