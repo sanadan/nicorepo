@@ -3,7 +3,6 @@
 DEBUG = false 
 NICO_PIT = 'www.nicovideo.jp'
 NICOREPO_API = 'http://www.nicovideo.jp/api/nicorepo/timeline/my/all?client_app=pc_myrepo'
-#STYLE = '<style type="text/css">img.nicorepo{float:left;}</style>'
 STYLE = ''
 User = Struct.new( :name, :thumbnail )
 Ranking = Struct.new( :highest, :type, :span, :category )
@@ -31,7 +30,11 @@ def ranking( data )
 end
 
 def thumbnail( url )
-  return '<img class="nicorepo" align="left" src="' + url + '">'
+  return link_to( '<img class="nicorepo" align="left" src="' + url + '">', url )
+end
+
+def link_to( content, url )
+  return '<a href="' + url + '">' + content + '</a>'
 end
 
 def main
