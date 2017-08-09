@@ -118,6 +118,11 @@ def main
       else
         item [:body ] += ' で ' + live[ 'beginAt' ] + ' からの生放送を予約しました。'
       end
+    when 'nicovideo.user.blomaga.upload'
+      item[ :title ] = data[ 'channelArticle' ][ 'title' ]
+      item[ :link ] = data[ 'channelArticle' ][ 'watchUrls' ][ 'pcUrl' ]
+      user = user( data )
+      item[ :body ] += thumbnail( data[ 'channelArticle' ][ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがブロマガにアップロードしました。'
     when 'live.channel.program.onairs'
       live = data[ 'program' ]
       item[ :title ] = live[ 'title' ]
