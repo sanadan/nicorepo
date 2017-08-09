@@ -122,7 +122,7 @@ def main
       item[ :title ] = data[ 'channelArticle' ][ 'title' ]
       item[ :link ] = data[ 'channelArticle' ][ 'watchUrls' ][ 'pcUrl' ]
       user = user( data )
-      item[ :body ] += thumbnail( data[ 'channelArticle' ][ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがブロマガにアップロードしました。'
+      item[ :body ] += thumbnail( data[ 'channelArticle' ][ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが記事を投稿しました。'
     when 'live.channel.program.onairs'
       live = data[ 'program' ]
       item[ :title ] = live[ 'title' ]
