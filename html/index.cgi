@@ -155,7 +155,7 @@ def main
       item[ :body ] += thumbnail( manga[ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがマンガ ' + manga[ 'title' ] + ' をお気に入りしました。'
     else
       item[ :title ] = '知らないレポート形式です。'
-      item[ :body ] = JSON.pretty_generate( data )
+      item[ :body ] = "<pre>#{JSON.pretty_generate( data )}</pre>"
     end
 
     @feed_items << item
