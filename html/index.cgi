@@ -153,6 +153,12 @@ def main
       item[ :link ] = manga[ 'urls' ][ 'pcUrl' ]
       user = user( data )
       item[ :body ] += thumbnail( manga[ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがマンガ ' + manga[ 'title' ] + ' をお気に入りしました。'
+    when 'nicoad.user.advertise.video'
+      video = data[ 'video' ]
+      item[ :title ] = video[ 'title' ]
+      item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
+      user = user( data )
+      item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' をニコニ広告しました。'
     else
       item[ :title ] = '知らないレポート形式です。'
       item[ :body ] = "<pre>#{JSON.pretty_generate( data )}</pre>"
