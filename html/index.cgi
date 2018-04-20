@@ -1,13 +1,38 @@
 #!/usr/bin/env ruby
 
+DEBUG = false 
 NICO_PIT = 'www.nicovideo.jp'
-NICOREPO_URI = 'http://www.nicovideo.jp/my/top'
-THUMBNAIL_TAG = 'data-original'
 NICOREPO_API = 'http://www.nicovideo.jp/api/nicorepo/timeline/my/all?client_app=pc_myrepo'
+#STYLE = '<style type="text/css">img.nicorepo{float:left;}</style>'
+STYLE = ''
+User = Struct.new( :name, :thumbnail )
+Ranking = Struct.new( :highest, :type, :span, :category )
 
 require 'bundler'
 Bundler.require
 require 'rss/maker'
+
+def user( data )
+  user = data[ 'senderNiconicoUser' ]
+  ret = User.new
+  ret.name = user[ 'nickname' ]
+  ret.thumbnail = user[ 'icons' ][ 'tags' ][ 'defaultValue' ][ 'urls' ][ 's50x50' ]
+  return ret
+end
+
+def ranking( data )
+  ranking = data[ 'actionLog' ]
+  ret = Ranking.new
+  ret.highest = ranking[ 'newHighestRanking' ]
+  ret.type = ranking[ 'rankingType' ]
+  ret.span = ranking[ 'rankingSpan' ]
+  ret.category = ranking[ 'rankingCategory' ]
+  return ret
+end
+
+def thumbnail( url )
+  return '<img class="nicorepo" align="left" src="' + url + '">'
+end
 
 def main
   config = Pitcgi.get( NICO_PIT, :require => {
@@ -20,59 +45,125 @@ def main
   Pitcgi.set( NICO_PIT, :data => config )
 
   json = nico.agent.get( NICOREPO_API ).body
-#File.write( 'o.json', json )
   nicorepo = JSON.parse( json )
+  File.write( 'nicorepo.json', JSON.pretty_generate( nicorepo ) ) if DEBUG
   nicorepo[ 'data' ].each do |data|
     item = {}
     item[ :id ] = data[ 'id' ]
     item[ :time ] = data[ 'createdAt' ]
-    item[ :title ] = ''
-    user = data[ 'senderNiconicoUser' ]
-    if user
-      item[ :body ] = '<img style="vertical-align: top;" src="' + user[ 'icons' ][ 'tags' ][ 'defaultValue' ][ 'urls' ][ 's50x50' ] + '">'
-      item[ :body ] += user[ 'nickname' ] + ' さんが'
-    end
-    video = data[ 'video' ]
-    video ||= data[ 'memberOnlyVideo' ]
-    if video
-      if data[ 'video' ]
-        item[ :body ] += '動画を投稿しました。'
-      else
-        community = data[ 'communityForFollower' ]
-        item[ :body ] += 'コミュニティ ' + community[ 'name' ] + ' に動画を追加しました。'
-      end
+    item[ :body ] = STYLE
+    case data[ 'topic' ]
+    when 'nicovideo.user.video.upload'
+      video = data[ 'video' ]
       item[ :title ] = video[ 'title' ]
       item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
-      item[ :body ] = '<img style="vertical-align: top;" src="' + video[ 'thumbnailUrl' ][ 'normal' ] + '">' + item[ :body ]
-    elsif data[ 'illustImage' ]
-      image = data[ 'illustImage' ]
-      item[ :title ] = image[ 'title' ]
-      item[ :link ] = image[ 'urls' ][ 'pcUrl' ]
-      item[ :body ] += 'イラストを投稿しました。'
-      item[ :body ] = '<img style="vertical-align: top;" src="' + image[ 'thumbnailUrl' ] + '">' + item[ :body ]
-    elsif data[ 'program' ]
-      program = data[ 'program' ]
-      item[ :title ] = program[ 'title' ]
-      item[ :link ] = 'http://live.nicovideo.jp/watch/' + program[ 'id' ]
-      if data[ 'community' ]
-        community = data[ 'community' ]
-        item[ :body ] += 'コミュニティ ' + community[ 'name' ] + ' で生放送を開始しました。'
-        item[ :body ] = '<img style="vertical-align: top;" src="' + program[ 'thumbnailUrl' ] + '">' + item[ :body ]
-      elsif data[ 'senderChannel' ]
-        channel = data[ 'senderChannel' ]
-        item[ :body ] = '<img style="vertical-align: top;" src="' + channel[ 'thumbnailUrl' ] + '">'
-        item[ :body ] += 'チャンネル ' + channel[ 'name' ] + ' で生放送が開始されました。'
+      user = user( data )
+      item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' を投稿しました。'
+    when 'nicovideo.user.mylist.add.video', 'nicovideo.user.temporary_mylist.add.video'
+      video = data[ 'video' ]
+      item[ :title ] = video[ 'title' ]
+      item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
+      user = user( data )
+      mylist = {}
+      if data[ 'topic' ] =~ /temporary_mylist/
+        mylist[ 'name' ] = 'とりあえずマイリスト'
+      else
+        mylist = data[ 'mylist' ]
       end
-    elsif data[ 'mangaContent' ]
+      item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' をマイリスト ' + mylist[ 'name' ] + ' に登録しました。'
+    when 'nicovideo.user.community.video.add'
+      video = data[ 'memberOnlyVideo' ]
+      item[ :title ] = video[ 'title' ]
+      item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
+      user = user( data )
+      community = data[ 'communityForFollower' ]
+      item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' をコミュニティ ' + community[ 'name' ] + ' に追加しました。'
+    when 'nicovideo.user.video.kiriban.play'
+      video = data[ 'video' ]
+      item[ :title ] = video[ 'title' ]
+      item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
+      user = user( data )
+      kiriban = data[ 'actionLog' ][ 'kiriban' ].to_s
+      item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんの ' + video[ 'title' ] + ' が ' + kiriban + '再生されました。'
+    when 'nicovideo.user.video.update_highest_rankings'
+      video = data[ 'video' ]
+      item[ :title ] = video[ 'title' ]
+      item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
+      user = user( data )
+      ranking = ranking( data )
+      item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんの ' + video[ 'title' ] + ' が ' + ranking.category + ' で ' + ranking.span + ' ' + ranking.highest.to_s + '位になりました。'
+    when 'nicovideo.user.video.advertise'
+      video = data[ 'video' ]
+      item[ :title ] = video[ 'title' ]
+      item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
+      user = user( data )
+      uad = data[ 'uad' ]
+      item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' を ニコニ広告 で宣伝しました。'
+    when 'nicovideo.user.video.live.introduce'
+      video = data[ 'video' ]
+      item[ :title ] = video[ 'title' ]
+      item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
+      user = user( data )
+      live = data[ 'program' ]
+      item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( live[ 'thumbnailUrl' ] ) + ' ' + user.name + ' さんの ' + video[ 'title' ] + ' が ' + live[ 'title' ] + ' で紹介されました。'
+    when 'live.user.program.onairs', 'live.user.program.reserve'
+      live = data[ 'program' ]
+      item[ :title ] = live[ 'title' ]
+      item[ :link ] = 'http://live.nicovideo.jp/watch/' + live[ 'id' ]
+      user = user( data )
+      community = data[ 'community' ]
+      item[ :body ] += thumbnail( live[ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがコミュニティ ' + community[ 'name' ]
+      if data[ 'topic' ].split( '.' ).last == 'onair'
+        item[ :body ] += ' で生放送を開始しました。'
+      else
+        item [:body ] += ' で ' + live[ 'beginAt' ] + ' からの生放送を予約しました。'
+      end
+    when 'nicovideo.user.blomaga.upload'
+      item[ :title ] = data[ 'channelArticle' ][ 'title' ]
+      item[ :link ] = data[ 'channelArticle' ][ 'watchUrls' ][ 'pcUrl' ]
+      user = user( data )
+      item[ :body ] += thumbnail( data[ 'channelArticle' ][ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが記事を投稿しました。'
+    when 'live.channel.program.onairs'
+      live = data[ 'program' ]
+      item[ :title ] = live[ 'title' ]
+      item[ :link ] = 'http://live.nicovideo.jp/watch/' + live[ 'id' ]
+      channel = data[ 'senderChannel' ]
+      item[ :body ] += thumbnail( live[ 'thumbnailUrl' ] ) + ' ' + thumbnail( channel[ 'thumbnailUrl' ] ) + ' チャンネル ' + channel[ 'name' ] + ' で生放送が開始されました。'
+    when 'nicoseiga.user.illust.upload'
+      illust = data[ 'illustImage' ]
+      item[ :title ] = illust[ 'title' ]
+      item[ :link ] = illust[ 'urls' ][ 'pcUrl' ]
+      user = user( data )
+      item[ :body ] += thumbnail( illust[ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがイラスト ' + illust[ 'title' ] + ' を投稿しました。'
+    when 'nicoseiga.user.illust.clip'
+      illust = data[ 'illustImage' ]
+      item[ :title ] = illust[ 'title' ]
+      item[ :link ] = illust[ 'urls' ][ 'pcUrl' ]
+      user = user( data )
+      item[ :body ] += thumbnail( illust[ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがイラスト ' + illust[ 'title' ] + ' をクリップしました。'
+    when 'nicoseiga.user.manga.episode.upload'
+      manga = data[ 'mangaEpisode' ]
+      item[ :title ] = manga[ 'title' ]
+      item[ :link ] = manga[ 'urls' ][ 'pcUrl' ]
+      user = user( data )
+      item[ :body ] += thumbnail( manga[ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがマンガ ' + manga[ 'title' ] + ' を投稿しました。'
+    when 'nicoseiga.user.manga.content.favorite'
       manga = data[ 'mangaContent' ]
       item[ :title ] = manga[ 'title' ]
       item[ :link ] = manga[ 'urls' ][ 'pcUrl' ]
-      item[ :body ] += 'マンガをお気に入りしました。'
-      item[ :body ] = '<img style="vertical-align: top;" src="' + manga[ 'thumbnailUrl' ] + '">' + item[ :body ]
+      user = user( data )
+      item[ :body ] += thumbnail( manga[ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがマンガ ' + manga[ 'title' ] + ' をお気に入りしました。'
+    when 'nicoad.user.advertise.video'
+      video = data[ 'video' ]
+      item[ :title ] = video[ 'title' ]
+      item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
+      user = user( data )
+      item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' をニコニ広告しました。'
     else
-      item[ :body ] += data.to_s
+      item[ :title ] = '知らないレポート形式です。'
+      item[ :body ] = "<pre>#{JSON.pretty_generate( data )}</pre>"
     end
-    
+
     @feed_items << item
   end
 end
