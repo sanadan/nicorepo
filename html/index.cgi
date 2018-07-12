@@ -129,6 +129,12 @@ def main
       item[ :link ] = 'http://live.nicovideo.jp/watch/' + live[ 'id' ]
       channel = data[ 'senderChannel' ]
       item[ :body ] += thumbnail( live[ 'thumbnailUrl' ] ) + ' ' + thumbnail( channel[ 'thumbnailUrl' ] ) + ' チャンネル ' + channel[ 'name' ] + ' で生放送が開始されました。'
+    when 'live.channel.program.reserve'
+      live = data[ 'program' ]
+      item[ :title ] = live[ 'title' ]
+      item[ :link ] = 'http://live.nicovideo.jp/watch/' + live[ 'id' ]
+      channel = data[ 'senderChannel' ]
+      item[ :body ] += thumbnail( live[ 'thumbnailUrl' ] ) + ' ' + thumbnail( channel[ 'thumbnailUrl' ] ) + ' チャンネル ' + channel[ 'name' ] + ' で生放送が予約されました。'
     when 'nicoseiga.user.illust.upload'
       illust = data[ 'illustImage' ]
       item[ :title ] = illust[ 'title' ]
