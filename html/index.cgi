@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-DEBUG = false 
+DEBUG = false
 NICO_PIT = 'www.nicovideo.jp'
 NICOREPO_API = 'http://www.nicovideo.jp/api/nicorepo/timeline/my/all?client_app=pc_myrepo'
 #STYLE = '<style type="text/css">img.nicorepo{float:left;}</style>'
@@ -46,7 +47,7 @@ def main
 
   json = nico.agent.get( NICOREPO_API ).body
   nicorepo = JSON.parse( json )
-  File.write( 'nicorepo.json', JSON.pretty_generate( nicorepo ) ) if DEBUG
+  File.write('nicorepo.json', JSON.pretty_generate(nicorepo)) if DEBUG
   nicorepo[ 'data' ].each do |data|
     item = {}
     item[ :id ] = data[ 'id' ]
@@ -165,6 +166,14 @@ def main
       item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
       user = user( data )
       item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' をニコニ広告しました。'
+    when 'nicommunity.user.video.registered'
+      video = data['memberOnlyVideo']
+      item[:title] = video['title']
+      item[:link] = 'http://www.nicovideo.jp/watch/' + video['videoWatchPageId']
+      user = user(data)
+      community = data['communityForFollower']
+      community_link = "<a href=\"https://com.nicovideo.jp/community/#{community['id']}\">#{community['name']}</a>"
+      item[:body] += thumbnail(video['thumbnailUrl']['normal']) + ' ' + thumbnail(user.thumbnail) + ' ' + user.name + ' さんが ' + video['title'] + ' をコミュニティ ' + community_link + ' に動画を登録しました。'
     else
       item[ :title ] = '知らないレポート形式です。'
       item[ :body ] = "<pre>#{JSON.pretty_generate( data )}</pre>"
