@@ -124,6 +124,11 @@ def main
       item[ :link ] = data[ 'channelArticle' ][ 'watchUrls' ][ 'pcUrl' ]
       user = user( data )
       item[ :body ] += thumbnail( data[ 'channelArticle' ][ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが記事を投稿しました。'
+    when 'nicovideo.user.solid.update'
+      item[:title] = data['solid']['title']
+      item[:link] = data['solid']['watchUrls']['pcUrl']
+      user = user( data )
+      item[:body] += thumbnail(data['solid']['thumbnailUrl']) + ' ' + thumbnail(user.thumbnail) + ' ' + user.name + ' さんが立体の配布データを更新しました。'
     when 'live.channel.program.onairs'
       live = data[ 'program' ]
       item[ :title ] = live[ 'title' ]
