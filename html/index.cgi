@@ -171,6 +171,12 @@ def main
       item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
       user = user( data )
       item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' をニコニ広告しました。'
+    when 'nicoad.user.advertise.program'
+      program = data['program']
+      item[:title] = program['title']
+      item[:link] = 'https://live.nicovideo.jp/watch/' + program['id']
+      user = user(data)
+      item[:body] += thumbnail(program['thumbnailUrl']) + ' ' + thumbnail(user.thumbnail) + ' ' + user.name + ' さんが ' + program['title'] + ' をニコニ広告しました。'
     when 'nicommunity.user.video.registered'
       video = data['memberOnlyVideo']
       item[:title] = video['title']
