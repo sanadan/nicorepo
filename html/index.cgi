@@ -124,6 +124,11 @@ def main
       item[ :link ] = data[ 'channelArticle' ][ 'watchUrls' ][ 'pcUrl' ]
       user = user( data )
       item[ :body ] += thumbnail( data[ 'channelArticle' ][ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが記事を投稿しました。'
+    when 'nicovideo.user.solid.update'
+      item[:title] = data['solid']['title']
+      item[:link] = data['solid']['watchUrls']['pcUrl']
+      user = user( data )
+      item[:body] += thumbnail(data['solid']['thumbnailUrl']) + ' ' + thumbnail(user.thumbnail) + ' ' + user.name + ' さんが立体の配布データを更新しました。'
     when 'live.channel.program.onairs'
       live = data[ 'program' ]
       item[ :title ] = live[ 'title' ]
@@ -166,6 +171,12 @@ def main
       item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
       user = user( data )
       item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' をニコニ広告しました。'
+    when 'nicoad.user.advertise.program'
+      program = data['program']
+      item[:title] = program['title']
+      item[:link] = 'https://live.nicovideo.jp/watch/' + program['id']
+      user = user(data)
+      item[:body] += thumbnail(program['thumbnailUrl']) + ' ' + thumbnail(user.thumbnail) + ' ' + user.name + ' さんが ' + program['title'] + ' をニコニ広告しました。'
     when 'nicommunity.user.video.registered'
       video = data['memberOnlyVideo']
       item[:title] = video['title']
