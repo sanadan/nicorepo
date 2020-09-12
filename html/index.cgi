@@ -98,7 +98,6 @@ def main
       item[ :title ] = video[ 'title' ]
       item[ :link ] = 'http://www.nicovideo.jp/watch/' + video[ 'videoWatchPageId' ]
       user = user( data )
-      uad = data[ 'uad' ]
       item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんが ' + video[ 'title' ] + ' を ニコニ広告 で宣伝しました。'
     when 'nicovideo.user.video.live.introduce'
       video = data[ 'video' ]
@@ -129,6 +128,12 @@ def main
       item[:link] = data['solid']['watchUrls']['pcUrl']
       user = user( data )
       item[:body] += thumbnail(data['solid']['thumbnailUrl']) + ' ' + thumbnail(user.thumbnail) + ' ' + user.name + ' さんが立体の配布データを更新しました。'
+    when 'nicovideo.video.first_liked_by_user'
+      video = data['video']
+      item[:title] = video['title']
+      item[:link] = 'http://www.nicovideo.jp/watch/' + video['videoWatchPageId']
+      user = user(data)
+      item[:body] += thumbnail(video['thumbnailUrl']['normal']) + ' ' + thumbnail(user.thumbnail) + ' ' + user.name + ' さんがが動画を「いいね！」しました。'
     when 'live.channel.program.onairs'
       live = data[ 'program' ]
       item[ :title ] = live[ 'title' ]
