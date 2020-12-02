@@ -134,6 +134,12 @@ def main
       item[:link] = 'http://www.nicovideo.jp/watch/' + video['videoWatchPageId']
       user = user(data)
       item[:body] += thumbnail(video['thumbnailUrl']['normal']) + ' ' + thumbnail(user.thumbnail) + ' ' + user.name + ' さんがが動画を「いいね！」しました。'
+    when 'nicovideo.channel.video.upload'
+      video = data['video']
+      item[:title] = video['title']
+      item[:link] = 'http://www.nicovideo.jp/watch/' + video['videoWatchPageId']
+      channel = data['senderChannel']
+      item[:body] += thumbnail(video['thumbnailUrl']['normal']) + ' ' + thumbnail(channel['thumbnailUrl']) + ' チャンネル ' + channel['name'] + ' に動画を登録しました。'
     when 'live.channel.program.onairs'
       live = data[ 'program' ]
       item[ :title ] = live[ 'title' ]
