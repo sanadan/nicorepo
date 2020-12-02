@@ -139,7 +139,7 @@ def main
       item[:title] = video['title']
       item[:link] = 'http://www.nicovideo.jp/watch/' + video['videoWatchPageId']
       channel = data['senderChannel']
-      item[:body] += thumbnail(video['thumbnailUrl']['normal']) + ' ' + thumbnail(channel['thumbnailUrl']) + ' チャンネル ' + channel['name'] + ' に動画を登録しました。'
+      item[:body] += thumbnail(video['thumbnailUrl']['normal']) + ' ' + thumbnail(channel['thumbnailUrl']) + ' チャンネル ' + channel['name'] + ' に動画が登録されました。'
     when 'live.channel.program.onairs'
       live = data[ 'program' ]
       item[ :title ] = live[ 'title' ]
