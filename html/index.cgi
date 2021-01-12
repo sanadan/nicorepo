@@ -196,6 +196,13 @@ def main
       community = data['communityForFollower']
       community_link = "<a href=\"https://com.nicovideo.jp/community/#{community['id']}\">#{community['name']}</a>"
       item[:body] += thumbnail(video['thumbnailUrl']['normal']) + ' ' + thumbnail(user.thumbnail) + ' ' + user.name + ' さんが ' + video['title'] + ' をコミュニティ ' + community_link + ' に動画を登録しました。'
+    when 'blomaga.channel.channel_article.publish'
+      channel_article = data['channelArticle']
+      item[:title] = channel_article['title']
+      item[:link] = channel_article['watchUrls']['pcUrl']
+      sender_channel = data['senderChannel']
+      channel_link = "<a href=\"#{sender_channel['url']}\">#{sender_channel['name']}</a>"
+      item[:body] += thumbnail(channel_article['thumbnailUrl']) + ' ' + thumbnail(sender_channel['thumbnailUrl']) + ' ' + sender_channel['name'] + ' に ' + channel_article['title'] + ' が投稿されました。'
     else
       item[ :title ] = '知らないレポート形式です。'
       item[ :body ] = "<pre>#{JSON.pretty_generate( data )}</pre>"
