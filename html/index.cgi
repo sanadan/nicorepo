@@ -107,13 +107,15 @@ def main
       live = data[ 'program' ]
       item[ :body ] += thumbnail( video[ 'thumbnailUrl' ][ 'normal' ] ) + ' ' + thumbnail( live[ 'thumbnailUrl' ] ) + ' ' + user.name + ' さんの ' + video[ 'title' ] + ' が ' + live[ 'title' ] + ' で紹介されました。'
     when 'live.user.program.onairs', 'live.user.program.reserve'
-      live = data[ 'program' ]
-      item[ :title ] = live[ 'title' ]
+      live = data['program']
+      item[:title] = live['id']
       item[ :link ] = 'http://live.nicovideo.jp/watch/' + live[ 'id' ]
       user = user( data )
       community = data[ 'community' ]
-      item[ :body ] += thumbnail( live[ 'thumbnailUrl' ] ) + ' ' + thumbnail( user.thumbnail ) + ' ' + user.name + ' さんがコミュニティ ' + community[ 'name' ]
-      if data[ 'topic' ].split( '.' ).last == 'onair'
+      item[:body] += thumbnail(community['thumbnailUrl']['small']) + ' ' +
+        thumbnail(user.thumbnail) + ' ' + user.name + ' さんがコミュニティ ' +
+        community['name']
+      if data[ 'topic' ].split( '.' ).last == 'onairs'
         item[ :body ] += ' で生放送を開始しました。'
       else
         item [:body ] += ' で ' + live[ 'beginAt' ] + ' からの生放送を予約しました。'
@@ -142,10 +144,12 @@ def main
       item[:body] += thumbnail(video['thumbnailUrl']['normal']) + ' ' + thumbnail(channel['thumbnailUrl']) + ' チャンネル ' + channel['name'] + ' に動画が登録されました。'
     when 'live.channel.program.onairs'
       live = data[ 'program' ]
-      item[ :title ] = live[ 'title' ]
+      item[:title] = live['id']
       item[ :link ] = 'http://live.nicovideo.jp/watch/' + live[ 'id' ]
       channel = data[ 'senderChannel' ]
-      item[ :body ] += thumbnail( live[ 'thumbnailUrl' ] ) + ' ' + thumbnail( channel[ 'thumbnailUrl' ] ) + ' チャンネル ' + channel[ 'name' ] + ' で生放送が開始されました。'
+      item[:body] += thumbnail(channel['thumbnailUrl']) + ' ' +
+        thumbnail(channel['thumbnailUrl' ] ) + ' チャンネル ' +
+        channel[ 'name' ] + ' で生放送が開始されました。'
     when 'live.channel.program.reserve'
       live = data[ 'program' ]
       item[ :title ] = live[ 'title' ]
